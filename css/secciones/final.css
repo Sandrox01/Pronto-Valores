@@ -1,0 +1,7 @@
+/* =========================================================================
+   Vista final — "¡Felicidades, Héroe del instante!" (pág. 37 del PDF).
+   El wrapper compartido `.view-cierre` (fondo negro + tarjeta con margen,
+   igual que los 5 cierres de módulo) vive en css/componentes/cierre.css.
+   Esta hoja queda solo por si la vista final necesita algún ajuste propio
+   a futuro.
+   ========================================================================= */

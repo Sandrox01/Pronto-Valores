@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Etiqueta de precio">
+  <g transform="rotate(-8 150 150)">
+    <path d="M60 40 H180 L250 110 V240 A20 20 0 0 1 230 260 H80 A20 20 0 0 1 60 240 Z"
+          fill="#FFCE11" stroke="#101010" stroke-width="10" stroke-linejoin="round"/>
+    <circle cx="105" cy="90" r="18" fill="#101010"/>
+    <circle cx="105" cy="90" r="8" fill="#FFCE11"/>
+    <text x="165" y="200" font-family="Arial, sans-serif" font-weight="800" font-size="86"
+          text-anchor="middle" fill="#101010">$</text>
+  </g>
+</svg>

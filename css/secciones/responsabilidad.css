@@ -1,0 +1,58 @@
+/* =========================================================================
+   Vistas del módulo Responsabilidad — escenario, loading, carrusel (x3 +
+   historia) y cierre. Orden verificado contra el PDF real: a diferencia de
+   Honestidad/Enfoque (loading ANTES del escenario), aquí el loading va
+   DESPUÉS del escenario y antes del carrusel (págs. 23 escenario → 24
+   loading → 25-27 carrusel → 28 historia → 29 cierre). Mismo patrón de dos
+   columnas que honestidad.css; reutiliza los componentes genéricos
+   .escenario-panel / .loading-panel ya definidos ahí (mismas reglas, sin
+   necesidad de repetirlas aquí).
+   ========================================================================= */
+
+/* :not() evita pisar el degradado de .cierre-modulo (css/componentes/cierre.css)
+   pese a cargarse antes en el <head>: ambas reglas comparten especificidad de
+   una clase, así que sin esta guarda ganaría la última en cascada. */
+.view-responsabilidad:not(.cierre-modulo) {
+  background: var(--color-negro);
+}
+
+.responsabilidad-columnas {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 64px;
+  height: 100%;
+  padding: 56px 64px;
+}
+
+.responsabilidad-columnas > .tarjeta-grande,
+.responsabilidad-columnas > .tarjeta-oscura,
+.responsabilidad-columnas > .video-player,
+.responsabilidad-columnas > .audio-player,
+.responsabilidad-columnas > .carrusel-mini {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.responsabilidad-divisor {
+  flex: none;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--color-amarillo-primario);
+  align-self: stretch;
+  margin: 24px 0;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .responsabilidad-columnas {
+    flex-direction: column;
+    gap: 28px;
+    padding: 32px 24px;
+    height: auto;
+  }
+  .responsabilidad-divisor {
+    width: auto;
+    height: 3px;
+    margin: 0;
+  }
+}

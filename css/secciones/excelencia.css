@@ -1,0 +1,59 @@
+/* =========================================================================
+   Vistas del módulo Excelencia Operacional — escenario, loading, carrusel
+   (x3 + historia) y cierre. Mismo orden de páginas que Responsabilidad
+   (escenario → loading → carrusel → historia → cierre, verificado contra el
+   PDF: págs. 30 escenario → 31 loading → 32-34 carrusel → 35 historia → 36
+   cierre). El encabezado del carrusel es "Tips de Excelencia operacional" en
+   vez de "¿Cómo aplico mi excelencia operacional?" (variación intencional,
+   confirmada en el PDF). Mismo patrón de dos columnas que honestidad.css;
+   reutiliza los componentes genéricos .escenario-panel / .loading-panel ya
+   definidos ahí (mismas reglas, sin necesidad de repetirlas aquí).
+   ========================================================================= */
+
+/* :not() evita pisar el degradado de .cierre-modulo (css/componentes/cierre.css)
+   pese a cargarse antes en el <head>: ambas reglas comparten especificidad de
+   una clase, así que sin esta guarda ganaría la última en cascada. */
+.view-excelencia:not(.cierre-modulo) {
+  background: var(--color-negro);
+}
+
+.excelencia-columnas {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 64px;
+  height: 100%;
+  padding: 56px 64px;
+}
+
+.excelencia-columnas > .tarjeta-grande,
+.excelencia-columnas > .tarjeta-oscura,
+.excelencia-columnas > .video-player,
+.excelencia-columnas > .audio-player,
+.excelencia-columnas > .carrusel-mini {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.excelencia-divisor {
+  flex: none;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--color-amarillo-primario);
+  align-self: stretch;
+  margin: 24px 0;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .excelencia-columnas {
+    flex-direction: column;
+    gap: 28px;
+    padding: 32px 24px;
+    height: auto;
+  }
+  .excelencia-divisor {
+    width: auto;
+    height: 3px;
+    margin: 0;
+  }
+}

@@ -1,0 +1,51 @@
+/* =========================================================================
+   Pronto: Héroes del Instante — Design tokens
+   Paleta y tipografía extraídas de guia-pronto-valores.pdf (ver ANALISIS-DISENO.md)
+   ========================================================================= */
+
+:root {
+  /* --- Color: paleta funcional (amarillo + negro + blanco + gris neutro) --- */
+  --color-amarillo-primario: #FFCE11;
+  --color-amarillo-suave: #FDC806;
+  --color-amarillo-cierre: #F6C103;
+  --color-negro: #101010;
+  --color-negro-puro: #000000;
+  --color-blanco: #FFFFFF;
+  --color-gris-video: #656565;
+  --color-gris-oscuro: #3A3D42;
+  --color-dorado-medalla: #D4AF37;
+
+  /* --- Color: acentos de iconos de tarjeta (aproximados del PDF) --- */
+  --color-icono-rosa: #E91E63;
+  --color-icono-azul: #5BC8E8;
+  --color-icono-rojo: #F44336;
+  --color-icono-verde: #4CAF50;
+  --color-icono-azul-diana: #2E7BC4;
+  --color-icono-purpura: #8E5BD6;
+
+  /* --- Degradados --- */
+  --gradiente-cierre: linear-gradient(180deg, var(--color-amarillo-cierre) 0%, var(--color-negro) 78%);
+  --gradiente-tarjeta: linear-gradient(160deg, var(--color-amarillo-primario) 0%, #C99B00 100%);
+  --gradiente-boton: linear-gradient(180deg, #FFE066 0%, var(--color-amarillo-primario) 45%, #E6B800 100%);
+
+  /* --- Tipografía ---
+     Fredoka (self-hosted, variable font 300-700) — la más cercana en Google Fonts
+     al sans-serif geométrico redondeado bold del PDF (títulos y cuerpo comparten familia). */
+  --font-display: 'Fredoka', 'Poppins', system-ui, sans-serif;
+  --font-body: 'Fredoka', 'Poppins', system-ui, sans-serif;
+
+  /* --- Lienzo base de diseño (1 vista del PDF = 1920x1080) --- */
+  --stage-w: 1920;
+  --stage-h: 1080;
+
+  /* --- Radios y sombras (escala 1920px, se reducen proporcionalmente por el stage-scale) --- */
+  --radio-tarjeta: 32px;
+  --radio-icono: 20px;
+  --radio-pill: 999px;
+  --sombra-tarjeta: 0 24px 60px rgba(0, 0, 0, 0.35);
+  --sombra-boton: 0 8px 0 rgba(0, 0, 0, 0.35), 0 12px 24px rgba(0, 0, 0, 0.25);
+
+  /* --- Transición del efecto "gravedad" --- */
+  --gravity-duration: 650ms;
+  --gravity-easing: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

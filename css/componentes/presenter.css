@@ -1,0 +1,315 @@
+/* =========================================================================
+   Vista presentadora animada — pantalla intermedia entre valores que muestra
+   el nombre del siguiente valor con animación de entrada premium, durante
+   unos segundos, y avanza automáticamente a la vista de contenido del
+   siguiente módulo. Se inserta entre el cierre de un valor y el escenario
+   del siguiente (excepto para el valor 1 / Bienvenida).
+   ========================================================================= */
+
+.view-presenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-negro);
+  padding: 48px;
+}
+
+.presenter-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-negro);
+  border-radius: var(--radio-tarjeta);
+  overflow: hidden;
+  gap: 36px;
+}
+
+/* --- Resplandor radial de fondo (se expande detrás del título) --- */
+.presenter-card__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 500px;
+  transform: translate(-50%, -50%) scale(0.3);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 206, 17, 0.18) 0%, rgba(255, 206, 17, 0.06) 40%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.presenter-card.is-animating .presenter-card__glow {
+  animation: presenter-glow-expand 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+/* --- Partículas sutiles (pseudo-elements del glow) --- */
+.presenter-card__glow::before,
+.presenter-card__glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-amarillo-primario);
+  opacity: 0;
+}
+
+.presenter-card__glow::before {
+  width: 8px;
+  height: 8px;
+  top: 20%;
+  left: 15%;
+}
+
+.presenter-card__glow::after {
+  width: 5px;
+  height: 5px;
+  bottom: 25%;
+  right: 20%;
+}
+
+.presenter-card.is-animating .presenter-card__glow::before {
+  animation: presenter-particle-float 3s ease-in-out 1s infinite;
+}
+
+.presenter-card.is-animating .presenter-card__glow::after {
+  animation: presenter-particle-float 3.5s ease-in-out 1.5s infinite reverse;
+}
+
+/* --- Animación de entrada --- */
+.presenter-card.is-animating .presenter-card__line {
+  animation: presenter-line-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s forwards;
+}
+
+.presenter-card.is-animating .presenter-card__eyebrow {
+  animation: presenter-fade-up 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s forwards;
+}
+
+.presenter-card.is-animating .presenter-card__line--bottom {
+  animation: presenter-line-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 2.6s forwards;
+}
+
+/* --- Línea decorativa superior --- */
+.presenter-card__line {
+  position: relative;
+  z-index: 1;
+  width: 0;
+  height: 5px;
+  background: var(--color-amarillo-primario);
+  border-radius: 999px;
+  opacity: 0;
+  box-shadow: 0 0 0 rgba(255, 206, 17, 0);
+}
+
+/* --- Subtítulo "Tu siguiente superpoder" --- */
+.presenter-card__eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 34px;
+  color: var(--color-blanco);
+  opacity: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* --- Nombre del valor (animación principal por letras) --- */
+.presenter-card__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 130px;
+  line-height: 1.1;
+  color: var(--color-amarillo-primario);
+  text-align: center;
+  max-width: 1400px;
+  /* El título no se anima como bloque: cada letra es un span animado */
+  opacity: 1;
+  text-shadow: 0 0 0 rgba(255, 206, 17, 0);
+}
+
+/* Glow pulsante en el título después de que las letras aparecen */
+.presenter-card.is-animating .presenter-card__title {
+  animation: presenter-title-glow 2.4s ease-in-out 2.8s infinite;
+}
+
+/* --- Letras individuales (creadas por presenter.js) --- */
+.presenter-card__title .presenter-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px) scale(0.7) rotateX(35deg);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.presenter-card.is-animating .presenter-char {
+  animation: presenter-char-in 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) calc(1.8s + var(--i, 0) * 0.055s) forwards;
+}
+
+/* --- Línea decorativa inferior --- */
+.presenter-card__line--bottom {
+  position: relative;
+  z-index: 1;
+  width: 0;
+  height: 5px;
+  background: var(--color-amarillo-primario);
+  border-radius: 999px;
+  opacity: 0;
+  box-shadow: 0 0 0 rgba(255, 206, 17, 0);
+}
+
+/* =========================================================================
+   Keyframes
+   ========================================================================= */
+
+/* Línea se dibuja desde el centro con resplandor */
+@keyframes presenter-line-in {
+  0% {
+    width: 0;
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(255, 206, 17, 0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    width: 220px;
+    opacity: 1;
+    box-shadow: 0 0 18px rgba(255, 206, 17, 0.45);
+  }
+}
+
+/* Eyebrow: aparece con tracking animado */
+@keyframes presenter-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+    letter-spacing: 0.25em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Cada letra entra con bounce desde abajo + rotación X */
+@keyframes presenter-char-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.7) rotateX(35deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.04) rotateX(-3deg);
+  }
+  75% {
+    transform: translateY(3px) scale(0.98) rotateX(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+/* Glow pulsante detrás del texto */
+@keyframes presenter-title-glow {
+  0%, 100% {
+    text-shadow: 0 0 24px rgba(255, 206, 17, 0.25), 0 0 48px rgba(255, 206, 17, 0.08);
+  }
+  50% {
+    text-shadow: 0 0 36px rgba(255, 206, 17, 0.5), 0 0 80px rgba(255, 206, 17, 0.18), 0 0 120px rgba(255, 206, 17, 0.06);
+  }
+}
+
+/* Resplandor radial de fondo se expande */
+@keyframes presenter-glow-expand {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Partículas flotantes */
+@keyframes presenter-particle-float {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(12px, -18px) scale(1);
+  }
+  80% {
+    opacity: 0.5;
+  }
+}
+
+/* =========================================================================
+   Salida: fundido suave antes del auto-advance
+   ========================================================================= */
+.presenter-card.is-exiting .presenter-card__glow,
+.presenter-card.is-exiting .presenter-card__line,
+.presenter-card.is-exiting .presenter-card__eyebrow,
+.presenter-card.is-exiting .presenter-card__title,
+.presenter-card.is-exiting .presenter-card__line--bottom {
+  animation: presenter-fade-out 0.45s ease-in forwards;
+}
+
+@keyframes presenter-fade-out {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.97); }
+}
+
+/* Las letras individuales también se funden */
+.presenter-card.is-exiting .presenter-char {
+  animation: presenter-char-out 0.35s ease-in forwards;
+}
+
+@keyframes presenter-char-out {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-12px) scale(0.95); }
+}
+
+/* =========================================================================
+   Modo móvil
+   ========================================================================= */
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .view-presenter {
+    padding: 24px;
+  }
+  .presenter-card {
+    gap: 24px;
+  }
+  .presenter-card__eyebrow {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
+  .presenter-card__title {
+    font-size: 56px;
+    max-width: 92%;
+  }
+  .presenter-card__glow {
+    width: 400px;
+    height: 300px;
+  }
+  @keyframes presenter-line-in {
+    0% { width: 0; opacity: 0; box-shadow: none; }
+    60% { opacity: 1; }
+    100% { width: 140px; opacity: 1; box-shadow: 0 0 12px rgba(255, 206, 17, 0.35); }
+  }
+}

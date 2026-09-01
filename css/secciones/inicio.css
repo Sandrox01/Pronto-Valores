@@ -1,0 +1,91 @@
+/* =========================================================================
+   Vista Inicio — splash con logo, frases sobre cajas negras, botón play y
+   las dos fotos de personal Pronto a los costados.
+   ========================================================================= */
+
+/* Fondo real del splash: veta de madera + iconos de línea + marco doble,
+   ya vienen dibujados en el propio asset (assets/img/inicio/textura-fondo.jpg,
+   1920x1080, mismo aspecto que el stage → cover sin distorsión). */
+.view-inicio {
+  background: url('../../assets/img/inicio/textura-fondo.jpg') center / cover no-repeat, var(--color-amarillo-primario);
+}
+
+.inicio-stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 860px;
+  max-width: 60%;
+  margin: 66px auto 0;
+  text-align: center;
+}
+
+.inicio-logo {
+  width: 620px;
+  max-width: 100%;
+  height: auto;
+}
+
+.inicio-caja {
+  margin: 0;
+  width: 100%;
+  padding: 26px 48px;
+  background: var(--color-negro);
+  border-radius: 26px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.25;
+  color: var(--color-amarillo-primario);
+}
+
+.inicio-caja--sub {
+  border-radius: 14px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.inicio-turno {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  color: var(--color-negro);
+}
+
+.inicio-play {
+  margin-top: 8px;
+}
+
+.inicio-foto {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 340px;
+  height: auto;
+  max-height: 82%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.inicio-foto--mujer { left: 26px; }
+.inicio-foto--hombre { right: 26px; }
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .inicio-marco { inset: 8px; }
+  .inicio-marco::before { inset: 5px; }
+  .inicio-stack {
+    max-width: 92%;
+    margin-top: 48px;
+    gap: 16px;
+    padding-bottom: 340px; /* deja hueco visible para las fotos inferiores */
+  }
+  .inicio-logo { width: 320px; }
+  .inicio-caja { font-size: 24px; padding: 16px 26px; }
+  .inicio-caja--sub { font-size: 18px; }
+  .inicio-turno { font-size: 26px; }
+  .inicio-foto { width: 42%; max-height: 300px; }
+}

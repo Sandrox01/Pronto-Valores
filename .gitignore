@@ -1,0 +1,17 @@
+# --- Salida de build (regenerable con scorm/build-paquete-scorm.sh) ---
+/dist/
+
+# --- Material de trabajo / fuentes (no se necesita para ejecutar el curso) ---
+/Videos/
+/Audios ajustados/
+/audio/
+
+# --- PDFs de referencia (pesados / uso interno) ---
+/guia-pronto-valores.pdf
+/Guion Héroes del instante_V3_ajustado_29.07.2026.docx.pdf
+
+# --- Basura del sistema operativo ---
+.DS_Store
+**/.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,240 @@
+/* =========================================================================
+   Reproductor de audio — panel derecho del carrusel: icono/título (o párrafo
+   de historia), fila de controles y barra de progreso con contador m:ss.
+   ========================================================================= */
+
+.audio-player {
+  flex: 1;
+  align-items: center;
+  padding: 56px 48px 44px;
+  gap: 28px;
+  text-align: center;
+}
+
+/* Icono grande del panel derecho: más grande que el icono "actual" del
+   mini-carrusel de la izquierda y con un margen superior para bajarlo y
+   centrarlo mejor en el espacio antes de los controles. */
+.audio-player__icono {
+  width: 500px;
+  height: 500px;
+  margin-top: 32px;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .audio-player__icono {
+    width: 240px;
+    height: 240px;
+    margin-top: 12px;
+  }
+}
+
+.audio-player__titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 54px;
+  color: var(--color-blanco);
+}
+
+/* --- Variante "sin audio" (tarjetas de tips: el guion no trae locución
+   para ellas, solo para escenario e historia) — sin botón de reproducir ni
+   barra de progreso para no insinuar una función que no existe; el ícono
+   se reduce y el texto descriptivo pasa a ser el protagonista, como pide
+   el diseño de referencia ("le damos prevalencia al texto"). --- */
+/* El grupo icono+título+texto se centra como bloque en el alto disponible
+   de la tarjeta (en vez de quedar pegado arriba con hueco vacío debajo). */
+.audio-player--sin-audio {
+  justify-content: center;
+}
+
+/* Mismo tamaño que el ícono "actual" del mini-carrusel de la izquierda
+   (.tarjeta-icono--grande, 380px) para que ambos paneles luzcan parejos. */
+.audio-player--sin-audio .audio-player__icono {
+  width: 380px;
+  height: 380px;
+  margin-top: 0;
+}
+
+.audio-player--sin-audio .audio-player__controles,
+.audio-player--sin-audio .audio-player__progreso-fila {
+  display: none;
+}
+
+.audio-player--sin-audio .audio-player__parrafo {
+  flex: none;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .audio-player--sin-audio .audio-player__icono { width: 200px; height: 200px; }
+  .audio-player--sin-audio .audio-player__parrafo { font-size: 20px; }
+}
+
+/* --- Variante "historia": título + párrafo narrativo en vez de icono --- */
+.audio-player--historia {
+  text-align: left;
+  padding: 48px 56px 40px;
+  gap: 18px;
+}
+
+.audio-player__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: 0.04em;
+  color: var(--color-negro);
+}
+
+.audio-player__parrafo {
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.5;
+  color: var(--color-blanco);
+  padding-right: 20px;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* --- Scrollbar personalizada --- */
+.audio-player__parrafo::-webkit-scrollbar {
+  width: 6px;
+}
+.audio-player__parrafo::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+.audio-player__parrafo::-webkit-scrollbar-thumb {
+  background: rgba(255, 206, 17, 0.45);
+  border-radius: 999px;
+}
+.audio-player__parrafo::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 206, 17, 0.7);
+}
+.audio-player__parrafo {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 206, 17, 0.45) rgba(255, 255, 255, 0.08);
+}
+
+/* --- Karaoke: resaltado de texto por palabra --- */
+.audio-player__parrafo .kw {
+  transition: color 0.15s ease;
+  color: rgba(255, 255, 255, 0.45);
+}
+.audio-player__parrafo .kw.kw--spoken {
+  color: var(--color-blanco) !important;
+}
+.audio-player__parrafo .kw.kw--active {
+  color: var(--color-amarillo-primario) !important;
+  text-shadow: 0 0 12px rgba(255, 206, 17, 0.3);
+}
+
+.audio-player__controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: auto;
+  order: 2;
+}
+
+.audio-player--historia .audio-player__controles {
+  justify-content: flex-start;
+}
+
+.audio-player__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-blanco);
+  cursor: pointer;
+}
+
+.audio-player__control svg {
+  width: 62%;
+  height: 62%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.audio-player__control.esta-activo {
+  color: var(--color-negro);
+  background: var(--color-blanco);
+}
+
+/* `width:100%` es necesario: `.audio-player` (padre) tiene `align-items:
+   center`, así que sin un ancho explícito esta fila se encoge a su
+   contenido (shrink-to-fit) — y un hijo `flex:1` dentro de un contenedor
+   shrink-to-fit colapsa a 0px (su flex-basis:0% no aporta al cálculo del
+   ancho del padre). Sin esto, la barra de progreso queda invisible. */
+.audio-player__progreso-fila {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  order: 1;
+}
+
+.audio-player__barra {
+  position: relative;
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.audio-player__relleno {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--color-blanco);
+  pointer-events: none;
+}
+
+.audio-player__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-amarillo-primario);
+  border: 3px solid var(--color-negro);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+}
+
+.audio-player__tiempo {
+  flex: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--color-blanco);
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .audio-player { padding: 32px 28px 28px; gap: 18px; }
+  .audio-player__titulo { font-size: 36px; }
+  .audio-player__eyebrow { font-size: 30px; }
+  .audio-player__parrafo { font-size: 22px; }
+  .audio-player__control { width: 62px; height: 62px; }
+  .audio-player__controles { gap: 16px; }
+}

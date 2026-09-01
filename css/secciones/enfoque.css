@@ -1,0 +1,63 @@
+/* =========================================================================
+   Vistas del módulo Enfoque al Cliente — loading, escenario, carrusel (x3 +
+   historia) y cierre. Mismo patrón de dos columnas que honestidad.css;
+   reutiliza los componentes genéricos .escenario-panel / .loading-panel ya
+   definidos ahí (mismas reglas, sin necesidad de repetirlas aquí).
+   ========================================================================= */
+
+/* :not() evita pisar el degradado de .cierre-modulo (css/componentes/cierre.css)
+   pese a cargarse antes en el <head>: ambas reglas comparten especificidad de
+   una clase, así que sin esta guarda ganaría la última en cascada. */
+.view-enfoque:not(.cierre-modulo) {
+  background: var(--color-negro);
+}
+
+.enfoque-columnas {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 64px;
+  height: 100%;
+  padding: 56px 64px;
+}
+
+.enfoque-columnas > .tarjeta-grande,
+.enfoque-columnas > .tarjeta-oscura,
+.enfoque-columnas > .video-player,
+.enfoque-columnas > .audio-player,
+.enfoque-columnas > .carrusel-mini {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.enfoque-divisor {
+  flex: none;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--color-amarillo-primario);
+  align-self: stretch;
+  margin: 24px 0;
+}
+
+/* --- Loading (botón "INICIAR DESAFIO" sobre panel gris) --- */
+.view-enfoque-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 64px;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .enfoque-columnas {
+    flex-direction: column;
+    gap: 28px;
+    padding: 32px 24px;
+    height: auto;
+  }
+  .enfoque-divisor {
+    width: auto;
+    height: 3px;
+    margin: 0;
+  }
+  .view-enfoque-loading { padding: 24px; min-height: 100vh; }
+}

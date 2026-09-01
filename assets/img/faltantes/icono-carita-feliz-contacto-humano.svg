@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Carita feliz">
+  <circle cx="150" cy="150" r="105" fill="#FFCE11" stroke="#101010" stroke-width="10"/>
+  <circle cx="112" cy="130" r="14" fill="#101010"/>
+  <circle cx="188" cy="130" r="14" fill="#101010"/>
+  <path d="M95 175 Q150 225 205 175" fill="none" stroke="#101010" stroke-width="14" stroke-linecap="round"/>
+</svg>

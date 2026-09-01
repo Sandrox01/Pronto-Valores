@@ -1,0 +1,39 @@
+/* =========================================================================
+   Vista Bienvenida — video de contexto horizontal centrado (guion V3,
+   slide 2). A diferencia de las vistas de escenario de cada valor (dos
+   columnas), aquí es un único reproductor centrado y más ancho que alto.
+   ========================================================================= */
+.view-bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-negro);
+  padding: 64px;
+}
+
+.bienvenida-columna {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player--ancho {
+  width: 100%;
+  height: 100%;
+  max-width: 1500px;
+}
+
+/* La foto usada de póster (assets/img/inicio/foto-hombre.png) es un retrato
+   vertical recortado, pensado para el splash de Inicio — en este reproductor
+   horizontal, `object-fit:cover` la centraba por defecto y cortaba la
+   cabeza. Subir el punto de referencia deja ver la cara/el logo Pronto del
+   uniforme en vez de solo el torso. */
+.video-player--bienvenida .video-player__el {
+  object-position: center 15%;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .view-bienvenida { padding: 24px; }
+}

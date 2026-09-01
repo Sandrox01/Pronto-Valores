@@ -1,0 +1,56 @@
+/* =========================================================================
+   Vistas del módulo Innovación — escenario, carrusel (x3 + historia) y
+   cierre. Sin pantalla de loading (verificado contra el PDF: la pág. 17 pasa
+   directo del cierre de Enfoque al escenario de Innovación, sin "INICIAR
+   DESAFIO" intermedio). Mismo patrón de dos columnas que honestidad.css;
+   reutiliza los componentes genéricos .escenario-panel / .loading-panel ya
+   definidos ahí (mismas reglas, sin necesidad de repetirlas aquí).
+   ========================================================================= */
+
+/* :not() evita pisar el degradado de .cierre-modulo (css/componentes/cierre.css)
+   pese a cargarse antes en el <head>: ambas reglas comparten especificidad de
+   una clase, así que sin esta guarda ganaría la última en cascada. */
+.view-innovacion:not(.cierre-modulo) {
+  background: var(--color-negro);
+}
+
+.innovacion-columnas {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 64px;
+  height: 100%;
+  padding: 56px 64px;
+}
+
+.innovacion-columnas > .tarjeta-grande,
+.innovacion-columnas > .tarjeta-oscura,
+.innovacion-columnas > .video-player,
+.innovacion-columnas > .audio-player,
+.innovacion-columnas > .carrusel-mini {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.innovacion-divisor {
+  flex: none;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--color-amarillo-primario);
+  align-self: stretch;
+  margin: 24px 0;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .innovacion-columnas {
+    flex-direction: column;
+    gap: 28px;
+    padding: 32px 24px;
+    height: auto;
+  }
+  .innovacion-divisor {
+    width: auto;
+    height: 3px;
+    margin: 0;
+  }
+}

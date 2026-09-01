@@ -1,0 +1,106 @@
+/* =========================================================================
+   Reset + fuente + mecánica del "stage" escalado 1920x1080
+   ========================================================================= */
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('../assets/fonts/Fredoka.ttf') format('truetype-variations'),
+       url('../assets/fonts/Fredoka.ttf') format('truetype');
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+* , *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* el motor de scroll-gravity controla el desplazamiento, no el navegador */
+  background: var(--color-negro);
+  font-family: var(--font-body);
+  color: var(--color-negro);
+}
+
+img { max-width: 100%; display: block; }
+
+/* Refuerza [hidden] por encima de cualquier `display` de componente (ej.
+   .tarjeta-icono trae su propio display:flex) — evita que un elemento
+   "oculto" por JS (carousel.js) siga siendo visible por especificidad. */
+[hidden] { display: none !important; }
+button { font-family: inherit; }
+
+a, button {
+  cursor: pointer;
+}
+
+/* Viewport visible: contenedor a pantalla completa que centra el stage escalado */
+#viewport {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stage: lienzo lógico fijo 1920x1080. Todo el contenido de cada vista se posiciona
+   dentro de este lienzo en unidades px reales (fidelidad 1:1 con el PDF). El propio
+   stage se escala completo vía transform (ver js/stage-scale.js) para caber en
+   cualquier ventana, en vez de recalcular cada elemento individualmente. */
+#stage {
+  position: relative;
+  width: calc(var(--stage-w) * 1px);
+  height: calc(var(--stage-h) * 1px);
+  flex: none;
+  overflow: hidden; /* recorta #track, que apila TODAS las vistas y por eso es mucho más alto que el stage — sin esto se asoma la vista siguiente/anterior */
+  transform-origin: center center;
+  background: var(--color-negro);
+}
+
+/* Track: todas las vistas apiladas verticalmente en flujo normal dentro del
+   stage; el motor de gravedad mueve este track con translateY (en px lógicos
+   del lienzo 1920x1080, heredando el mismo transform:scale del #stage) para
+   "saltar" de vista en vista con la animación de gravedad. */
+#track {
+  width: 100%;
+  will-change: transform;
+}
+
+.view {
+  width: calc(var(--stage-w) * 1px);
+  height: calc(var(--stage-h) * 1px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Modo reflow móvil: cuando stage-scale.js detecta pantalla angosta/portrait,
+   añade esta clase al body y el stage deja de escalarse como lienzo fijo — cada
+   .view pasa a fluir en flujo normal vertical (ver secciones/*.css @media). */
+body.modo-movil #viewport {
+  align-items: flex-start;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+body.modo-movil #stage {
+  width: 100%;
+  height: auto;
+  transform: none !important;
+}
+body.modo-movil #track {
+  height: auto;
+  transform: none !important;
+  transition: none !important;
+}
+body.modo-movil .view {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}

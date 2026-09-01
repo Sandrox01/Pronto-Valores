@@ -1,0 +1,92 @@
+/* =========================================================================
+   Mini-carrusel — panel izquierdo del carrusel de tarjetas: encabezado,
+   flechas circulares prev/next y trío de iconos (anterior/actual/siguiente).
+   Es un carrusel HORIZONTAL real dentro de una única .view (js/carousel.js),
+   independiente del motor de gravedad vertical: las flechas solo caen al
+   motor de gravedad en los bordes (antes de la primera tarjeta / después de
+   la última), ver js/carousel.js.
+   ========================================================================= */
+
+.carrusel-mini {
+  flex: 1;
+  align-items: center;
+  padding: 48px 56px 32px;
+  gap: 8px;
+}
+
+.carrusel-mini__titulo {
+  align-self: flex-start;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 56px;
+  color: var(--color-negro);
+}
+
+.carrusel-mini__flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.carrusel-mini__flecha--prev { left: -32px; }
+.carrusel-mini__flecha--next { right: -32px; }
+
+/* El hover/active global de .btn-circular sobreescribe el translateY(-50%) de
+   centrado y hace "saltar" la flecha de su posición. Aquí solo se agranda
+   (o encoge al presionar) manteniendo el centrado vertical. */
+.carrusel-mini__flecha:hover {
+  transform: translateY(-50%) scale(1.28);
+}
+
+.carrusel-mini__flecha:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.carrusel-mini__iconos {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  min-height: 440px;
+}
+
+.carrusel-mini__icono {
+  position: relative;
+}
+
+/* La imagen dentro del cuadro negro del panel IZQUIERDO un poco más grande
+   que la del panel derecho (que queda en 80%, ver tarjetas.css). */
+.carrusel-mini__icono img {
+  width: 90%;
+  height: 90%;
+}
+
+.carrusel-mini__icono--prev { margin-right: -60px; z-index: 1; }
+.carrusel-mini__icono--next { margin-left: -60px; z-index: 1; }
+.carrusel-mini__icono--actual { z-index: 2; }
+
+.carrusel-mini__icono--oculto {
+  visibility: hidden;
+}
+
+.carrusel-mini__track-titulo {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 52px;
+  color: var(--color-blanco);
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .carrusel-mini { padding: 40px 28px 32px; }
+  .carrusel-mini__titulo { font-size: 36px; }
+  .carrusel-mini__track-titulo { font-size: 34px; }
+  .carrusel-mini__iconos { min-height: 180px; }
+  .carrusel-mini__icono--prev { margin-right: -34px; }
+  .carrusel-mini__icono--next { margin-left: -34px; }
+  .carrusel-mini__flecha--prev { left: -18px; }
+  .carrusel-mini__flecha--next { right: -18px; }
+}

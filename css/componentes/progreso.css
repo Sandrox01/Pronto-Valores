@@ -1,0 +1,66 @@
+/* =========================================================================
+   Indicador de progreso lateral — un punto por vista, fuera del #stage
+   escalado para mantener un tamaño de toque consistente en cualquier
+   resolución. No aparece en el PDF: es una ayuda de UX recomendada por el
+   brief para que el usuario sepa en qué vista está y cuántas faltan.
+   ========================================================================= */
+.progreso-lateral {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 4px;
+}
+
+.progreso-lateral::-webkit-scrollbar { display: none; }
+
+.progreso-lateral__punto {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+
+.progreso-lateral__punto:hover {
+  border-color: var(--color-amarillo-primario);
+}
+
+.progreso-lateral__punto.esta-activo {
+  background: var(--color-amarillo-primario);
+  border-color: var(--color-amarillo-primario);
+  transform: scale(1.3);
+}
+
+/* Área de toque cómoda (~44px) sin agrandar el punto visualmente */
+.progreso-lateral__punto {
+  position: relative;
+}
+.progreso-lateral__punto::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .progreso-lateral {
+    right: 8px;
+    gap: 8px;
+  }
+  .progreso-lateral__punto {
+    width: 8px;
+    height: 8px;
+  }
+}

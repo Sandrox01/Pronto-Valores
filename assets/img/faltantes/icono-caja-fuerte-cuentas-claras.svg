@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Caja fuerte">
+  <rect x="45" y="45" width="210" height="210" rx="22" fill="#5B5F66" stroke="#101010" stroke-width="10"/>
+  <circle cx="150" cy="150" r="62" fill="#3A3D42" stroke="#FFCE11" stroke-width="8"/>
+  <circle cx="150" cy="150" r="14" fill="#FFCE11"/>
+  <rect x="146" y="90" width="8" height="34" fill="#FFCE11"/>
+  <rect x="146" y="176" width="8" height="34" fill="#FFCE11"/>
+  <rect x="90" y="146" width="34" height="8" fill="#FFCE11"/>
+  <rect x="176" y="146" width="34" height="8" fill="#FFCE11"/>
+  <rect x="205" y="128" width="26" height="44" rx="6" fill="#FFCE11" stroke="#101010" stroke-width="6"/>
+</svg>

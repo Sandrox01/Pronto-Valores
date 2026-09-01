@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pronto: Héroes del Instante</title>
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes/botones.css">
+<link rel="stylesheet" href="css/componentes/tarjetas.css">
+<link rel="stylesheet" href="css/componentes/video-player.css">
+<link rel="stylesheet" href="css/componentes/audio-player.css">
+<link rel="stylesheet" href="css/componentes/carrusel-mini.css">
+<link rel="stylesheet" href="css/componentes/cierre.css">
+<link rel="stylesheet" href="css/componentes/progreso.css">
+<link rel="stylesheet" href="css/secciones/inicio.css">
+<link rel="stylesheet" href="css/secciones/bienvenida.css">
+<link rel="stylesheet" href="css/secciones/honestidad.css">
+<link rel="stylesheet" href="css/secciones/enfoque.css">
+<link rel="stylesheet" href="css/secciones/innovacion.css">
+<link rel="stylesheet" href="css/secciones/responsabilidad.css">
+<link rel="stylesheet" href="css/secciones/excelencia.css">
+<link rel="stylesheet" href="css/secciones/final.css">
+<link rel="stylesheet" href="css/componentes/presenter.css">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <div id="track">
+
+      <!-- 1. Inicio — splash -->
+      <section class="view view-inicio" id="view-inicio" data-view-id="inicio">
+        <img class="inicio-foto inicio-foto--mujer" src="assets/img/inicio/foto-mujer.jpg" alt="Colaboradora de Tiendas Pronto con uniforme de la marca, sonriendo">
+        <img class="inicio-foto inicio-foto--hombre" src="assets/img/inicio/foto-hombre.png" alt="Colaborador de Tiendas Pronto con uniforme de la marca, sonriendo">
+        <div class="inicio-stack">
+          <img class="inicio-logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+          <h1 class="inicio-caja">Héroes del instante: solo hacemos que suceda</h1>
+          <p class="inicio-turno">¡Tu turno está por comenzar!</p>
+          <p class="inicio-caja inicio-caja--sub">Entra y descubre los superpoderes que llevas dentro.</p>
+          <button type="button" class="btn-circular btn-circular--play-grande inicio-play" data-goto="next" aria-label="Comenzar el módulo Héroes del Instante">
+            <span class="icono-triangulo" aria-hidden="true"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. Bienvenida — video de contexto con narración (guion V3, slide 2).
+           El botón "Iniciar desafío" aparece SOBRE esta misma pantalla al
+           terminar la locución (así lo indica el guion textualmente: "Al
+           finalizar, aparece el botón activo 'Iniciar desafío'") — no es una
+           vista aparte, se fusionó con la antigua "Honestidad — loading". -->
+      <section class="view view-bienvenida" id="view-bienvenida" data-view-id="bienvenida">
+        <div class="bienvenida-columna">
+          <div class="video-player video-player--ancho video-player--bienvenida" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/inicio/poster-bienvenida.jpg" aria-label="Video de bienvenida: un colaborador de Tiendas Pronto te da la bienvenida">
+              <source src="assets/video/bienvenida/contexto.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración de bienvenida">
+              <source src="assets/audio/bienvenida/intro.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video de bienvenida">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-pill video-player__cta" data-goto="next" hidden>Iniciar desafío</button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Honestidad — escenario / pregunta -->
+      <section class="view view-honestidad" id="view-honestidad-escenario" data-view-id="honestidad-escenario">
+        <div class="honestidad-columnas">
+          <div class="tarjeta-oscura escenario-panel">
+            <img class="escenario-panel__foto" src="assets/img/honestidad/foto-escenario.png" alt="" aria-hidden="true">
+            <div class="escenario-panel__scrim" aria-hidden="true"></div>
+            <h2 class="escenario-panel__titulo">¿Cómo actúas cuando nadie te observa?</h2>
+            <p class="escenario-panel__subtitulo">El verdadero valor de un héroe se nota cuando nadie lo está mirando. ¡Descubre tu primer superpoder!</p>
+          </div>
+          <div class="video-player" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/honestidad/poster-escenario.jpg" aria-label="Video del escenario: honestidad en el punto de venta">
+              <source src="assets/video/honestidad/escenario.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración del escenario">
+              <source src="assets/audio/honestidad/escenario.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Honestidad — carrusel de tips (carrusel horizontal real, js/carousel.js) -->
+      <section class="view view-honestidad" id="view-honestidad-carrusel" data-view-id="honestidad-carrusel">
+        <div class="honestidad-columnas">
+          <div class="carrusel-mini tarjeta-grande">
+            <script type="application/json" class="carrusel-datos">
+              [{"icon": "assets/img/honestidad/icono-precio-claros.png", "iconAlt": "Icono de etiqueta de precio", "label": "Precios claros", "caption": "Asegura que el cliente pague exactamente lo estipulado. Siempre comunica los combos o promociones del día."}, {"icon": "assets/img/honestidad/icono-caja-fuerte.png", "iconAlt": "Icono de caja fuerte", "label": "Cuentas claras", "caption": "Reporta de inmediato cualquier descuadre o error en tu caja. La transparencia protege tu trabajo."}, {"icon": "assets/img/honestidad/icono-manos-confianza.png", "iconAlt": "Icono de apretón de manos", "label": "Confianza mutua", "caption": "Al actuar con rectitud, generas un ambiente seguro para tus compañeros y clientes."}, {"icon": "assets/img/honestidad/icono-regalo-beneficios.png", "iconAlt": "Icono de regalo", "label": "Beneficios para el cliente", "caption": "Como colaboradores no debemos sacar provecho sobre beneficios del cliente. Por ejemplo, si la compra no es nuestra no podemos acumular puntos del programa de lealtad."}, {"historia": true, "eyebrow": "Honestidad", "parrafo": "Hola, soy Carlos de Tiendas Pronto. Una tarde, un cliente habitual pagó sus servicios públicos en mi caja. Al revisar el arqueo nocturno, noté que el sistema duplicó un saldo a su favor por un error técnico. Hubiera sido fácil dejarlo pasar, pero recordé que nuestra promesa es la honestidad.<br><br>Al día siguiente, reporté el caso a mi supervisor, localizamos al cliente y solucionamos el inconveniente. El cliente regresó superagradecido y ahora solo compra en mi turno. ¡Ser honesto paga bien!", "audio": "assets/audio/honestidad/historia-carlos.mp3", "miniActualIndex": 0}]
+            </script>
+            <h2 class="carrusel-mini__titulo">¿Cómo aplico mi honestidad?</h2>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--prev" data-carousel="prev" aria-label="Tarjeta anterior">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--next" data-carousel="next" aria-label="Tarjeta siguiente">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <div class="carrusel-mini__iconos">
+              <div class="carrusel-mini__icono carrusel-mini__icono--prev tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--actual tarjeta-icono tarjeta-icono--grande"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--next tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+            </div>
+            <p class="carrusel-mini__track-titulo"></p>
+          </div>
+          <div class="honestidad-divisor" aria-hidden="true"></div>
+          <div class="audio-player tarjeta-grande" data-no-gravity>
+            <div class="tarjeta-icono tarjeta-icono--grande audio-player__icono"><img alt=""></div>
+            <h2 class="audio-player__eyebrow" hidden></h2>
+            <h3 class="audio-player__titulo"></h3>
+            <p class="audio-player__parrafo" hidden></p>
+            <audio class="audio-player__el" preload="none" aria-label="Audio de la tarjeta actual"></audio>
+            <div class="audio-player__controles" role="group" aria-label="Controles de audio">
+              <button type="button" class="audio-player__control audio-player__anterior" aria-label="Tarjeta anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14L8 12z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg>
+              </button>
+              <button type="button" class="btn-circular btn-circular--play-chico audio-player__play" aria-label="Reproducir audio">
+                <span class="icono-triangulo" aria-hidden="true"></span>
+                <span class="icono-pausa" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="audio-player__control audio-player__siguiente" aria-label="Tarjeta siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l11-7z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg>
+              </button>
+            </div>
+            <div class="audio-player__progreso-fila" data-no-gravity>
+              <div class="audio-player__barra" role="slider" aria-label="Progreso del audio" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="audio-player__relleno"></div>
+                <div class="audio-player__thumb"></div>
+              </div>
+              <span class="audio-player__tiempo">0:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Honestidad — cierre de módulo -->
+      <section class="view view-honestidad view-cierre" id="view-honestidad-cierre" data-view-id="honestidad-cierre">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">Tu superpoder asegurado: ¡Honestidad!</h2>
+            <p class="cierre-modulo__subtitulo">La confianza de nuestros clientes se construye en cada centavo.</p>
+            <button type="button" class="btn-pill cierre-modulo__boton" data-goto="next">Enfoque al Cliente</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5b. Presentación animada — Enfoque al Cliente -->
+      <section class="view view-presenter" id="view-presenter-enfoque" data-view-id="presenter-enfoque">
+        <div class="presenter-card">
+          <div class="presenter-card__line" aria-hidden="true"></div>
+          <p class="presenter-card__eyebrow">Tu siguiente superpoder</p>
+          <h2 class="presenter-card__title">Enfoque al Cliente</h2>
+          <div class="presenter-card__line presenter-card__line--bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 6. Enfoque al Cliente — escenario / pregunta -->
+      <section class="view view-enfoque" id="view-enfoque-escenario" data-view-id="enfoque-escenario">
+        <div class="enfoque-columnas">
+          <div class="tarjeta-oscura escenario-panel">
+            <img class="escenario-panel__foto" src="assets/img/enfoque/foto-escenario.png" alt="" aria-hidden="true">
+            <div class="escenario-panel__scrim" aria-hidden="true"></div>
+            <h2 class="escenario-panel__titulo">¿Un cliente difícil o un héroe sin capa en un mal día?</h2>
+            <p class="escenario-panel__subtitulo">Tu actitud transforma un minuto de espera en una experiencia genial. ¡Actívalo!</p>
+          </div>
+          <div class="video-player" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/enfoque/poster-escenario.jpg" aria-label="Video del escenario: enfoque al cliente en el punto de venta">
+              <source src="assets/video/enfoque/escenario.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración del escenario">
+              <source src="assets/audio/enfoque/escenario.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Enfoque al Cliente — carrusel de tips (carrusel horizontal real, js/carousel.js) -->
+      <section class="view view-enfoque" id="view-enfoque-carrusel" data-view-id="enfoque-carrusel">
+        <div class="enfoque-columnas">
+          <div class="carrusel-mini tarjeta-grande">
+            <script type="application/json" class="carrusel-datos">
+              [{"icon": "assets/img/enfoque/icono-cara-contacto-humano.png", "iconAlt": "Icono de carita feliz", "label": "Contacto humano", "caption": "Inicia cada transacción con un saludo cálido y una sonrisa. El cliente debe sentirse bienvenido desde el primer segundo."}, {"icon": "assets/img/enfoque/icono-rayo-agilidad.png", "iconAlt": "Icono de rayo", "label": "Agilidad sin fricción", "caption": "Tu rapidez al cobrar y empacar respeta el tiempo del cliente. Hazlo ágil, hazlo bien."}, {"icon": "assets/img/enfoque/icono-dialogo-escucha-activa.png", "iconAlt": "Icono de burbuja de diálogo", "label": "Escucha activa", "caption": "Anticipa las necesidades del cliente. Si tiene dudas con sus recargas o pagos, oriéntalo con paciencia."}, {"historia": true, "eyebrow": "Enfoque al Cliente", "parrafo": "Hola, soy Elena de Tiendas Pronto. Una mañana de alta demanda, entró un señor mayor muy estresado porque necesitaba comprar el cilindro de gas para su cocina antes de salir a trabajar, y justo el que buscaba se nos había agotado.<br><br>La fila en caja avanzaba rápido, pero noté su frustración y su prisa. En lugar de solo decirle \"no hay\" y seguir con el cliente que estaba después de él, respiré, lo saludé amablemente y le pregunté qué necesitaba exactamente. Le confirmé la hora del próximo reabasto y le indiqué la tienda Pronto más cercana con existencia.<br><br>El señor pasó de verse angustiado a agradecerme de manera muy especial. Me dijo que nadie se había tomado el tiempo de ayudarlo así. Entendí que nuestro trabajo va más allá de vender, hasta el punto de aliviarle el día a la gente.", "audio": "assets/audio/enfoque/historia-elena.mp3", "miniActualIndex": 2}]
+            </script>
+            <h2 class="carrusel-mini__titulo">¿Cómo aplico mi enfoque al cliente?</h2>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--prev" data-carousel="prev" aria-label="Tarjeta anterior">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--next" data-carousel="next" aria-label="Tarjeta siguiente">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <div class="carrusel-mini__iconos">
+              <div class="carrusel-mini__icono carrusel-mini__icono--prev tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--actual tarjeta-icono tarjeta-icono--grande"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--next tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+            </div>
+            <p class="carrusel-mini__track-titulo"></p>
+          </div>
+          <div class="enfoque-divisor" aria-hidden="true"></div>
+          <div class="audio-player tarjeta-grande" data-no-gravity>
+            <div class="tarjeta-icono tarjeta-icono--grande audio-player__icono"><img alt=""></div>
+            <h2 class="audio-player__eyebrow" hidden></h2>
+            <h3 class="audio-player__titulo"></h3>
+            <p class="audio-player__parrafo" hidden></p>
+            <audio class="audio-player__el" preload="none" aria-label="Audio de la tarjeta actual"></audio>
+            <div class="audio-player__controles" role="group" aria-label="Controles de audio">
+              <button type="button" class="audio-player__control audio-player__anterior" aria-label="Tarjeta anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14L8 12z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg>
+              </button>
+              <button type="button" class="btn-circular btn-circular--play-chico audio-player__play" aria-label="Reproducir audio">
+                <span class="icono-triangulo" aria-hidden="true"></span>
+                <span class="icono-pausa" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="audio-player__control audio-player__siguiente" aria-label="Tarjeta siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l11-7z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg>
+              </button>
+            </div>
+            <div class="audio-player__progreso-fila" data-no-gravity>
+              <div class="audio-player__barra" role="slider" aria-label="Progreso del audio" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="audio-player__relleno"></div>
+                <div class="audio-player__thumb"></div>
+              </div>
+              <span class="audio-player__tiempo">0:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Enfoque al Cliente — cierre de módulo -->
+      <section class="view view-enfoque view-cierre" id="view-enfoque-cierre" data-view-id="enfoque-cierre">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">Tu superpoder asegurado: ¡Enfoque al Cliente!</h2>
+            <p class="cierre-modulo__subtitulo">Una interacción atenta transforma un día común en uno extraordinario. ¡Sigue con esa calidad!</p>
+            <button type="button" class="btn-pill cierre-modulo__boton" data-goto="next">Innovación</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9b. Presentación animada — Innovación -->
+      <section class="view view-presenter" id="view-presenter-innovacion" data-view-id="presenter-innovacion">
+        <div class="presenter-card">
+          <div class="presenter-card__line" aria-hidden="true"></div>
+          <p class="presenter-card__eyebrow">Tu siguiente superpoder</p>
+          <h2 class="presenter-card__title">Innovación</h2>
+          <div class="presenter-card__line presenter-card__line--bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 10. Innovación — escenario / pregunta (sin loading: verificado contra el PDF, pág. 17 pasa directo del cierre de Enfoque al escenario) -->
+      <section class="view view-innovacion" id="view-innovacion-escenario" data-view-id="innovacion-escenario">
+        <div class="innovacion-columnas">
+          <div class="tarjeta-oscura escenario-panel">
+            <img class="escenario-panel__foto" src="assets/img/innovacion/foto-escenario.png" alt="" aria-hidden="true">
+            <div class="escenario-panel__scrim" aria-hidden="true"></div>
+            <h2 class="escenario-panel__titulo">¿La tecnología es un obstáculo o tu mejor aliada en el turno?</h2>
+            <p class="escenario-panel__subtitulo">Los verdaderos héroes adoptan el cambio y lideran el futuro de la tienda.</p>
+          </div>
+          <div class="video-player" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/innovacion/poster-escenario.jpg" aria-label="Video del escenario: innovación en el punto de venta">
+              <source src="assets/video/innovacion/escenario.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración del escenario">
+              <source src="assets/audio/innovacion/escenario.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Innovación — carrusel de tips (carrusel horizontal real, js/carousel.js) -->
+      <section class="view view-innovacion" id="view-innovacion-carrusel" data-view-id="innovacion-carrusel">
+        <div class="innovacion-columnas">
+          <div class="carrusel-mini tarjeta-grande">
+            <script type="application/json" class="carrusel-datos">
+              [{"icon": "assets/img/innovacion/icono-pc-cero-resistencia.png", "iconAlt": "Icono de computador con engranaje", "label": "Cero resistencia", "caption": "Adopta las nuevas herramientas digitales y sistemas de cobro rápido con entusiasmo y disposición de aprender."}, {"icon": "assets/img/innovacion/icono-bombillo-maestria.png", "iconAlt": "Icono de bombillo", "label": "Maestría técnica", "caption": "Domina la configuración de los hornos, cafeteras y sistemas de cobro o supervisión. Su uso correcto garantiza la mejor calidad."}, {"icon": "assets/img/innovacion/icono-flecha-propon-mejoras.png", "iconAlt": "Icono de flecha circular hacia arriba", "label": "Propón mejoras", "caption": "Si ves un cuello de botella en el servicio, plantea soluciones a tu supervisor. ¡Tus ideas cuentan!"}, {"historia": true, "eyebrow": "¿Cómo innovo?", "parrafo": "Hola, soy Luis de Tiendas Pronto. Cuando instalaron los nuevos hornos automáticos UNOX en mi sucursal, al principio nos dio un poco de temor a todos porque parecían muy complicados.<br><br>En lugar de quejarme, decidí leer el manual interactivo y practicar los tiempos correctos de preparación de los diferentes productos. Descubrí que aprovechar las funciones de cocción rápida de múltiples productos al mismo tiempo agilizaba mis tiempos de servicio y mejoraba la experiencia de los clientes. Ahora pienso que aprovechar estas herramientas innovadoras es una manera de mejorar mi trabajo.", "audio": "assets/audio/innovacion/historia-luis.mp3", "miniActualIndex": 0}]
+            </script>
+            <h2 class="carrusel-mini__titulo">¿Cómo innovo?</h2>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--prev" data-carousel="prev" aria-label="Tarjeta anterior">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--next" data-carousel="next" aria-label="Tarjeta siguiente">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <div class="carrusel-mini__iconos">
+              <div class="carrusel-mini__icono carrusel-mini__icono--prev tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--actual tarjeta-icono tarjeta-icono--grande"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--next tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+            </div>
+            <p class="carrusel-mini__track-titulo"></p>
+          </div>
+          <div class="innovacion-divisor" aria-hidden="true"></div>
+          <div class="audio-player tarjeta-grande" data-no-gravity>
+            <div class="tarjeta-icono tarjeta-icono--grande audio-player__icono"><img alt=""></div>
+            <h2 class="audio-player__eyebrow" hidden></h2>
+            <h3 class="audio-player__titulo"></h3>
+            <p class="audio-player__parrafo" hidden></p>
+            <audio class="audio-player__el" preload="none" aria-label="Audio de la tarjeta actual"></audio>
+            <div class="audio-player__controles" role="group" aria-label="Controles de audio">
+              <button type="button" class="audio-player__control audio-player__anterior" aria-label="Tarjeta anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14L8 12z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg>
+              </button>
+              <button type="button" class="btn-circular btn-circular--play-chico audio-player__play" aria-label="Reproducir audio">
+                <span class="icono-triangulo" aria-hidden="true"></span>
+                <span class="icono-pausa" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="audio-player__control audio-player__siguiente" aria-label="Tarjeta siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l11-7z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg>
+              </button>
+            </div>
+            <div class="audio-player__progreso-fila" data-no-gravity>
+              <div class="audio-player__barra" role="slider" aria-label="Progreso del audio" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="audio-player__relleno"></div>
+                <div class="audio-player__thumb"></div>
+              </div>
+              <span class="audio-player__tiempo">0:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. Innovación — cierre de módulo -->
+      <section class="view view-innovacion view-cierre" id="view-innovacion-cierre" data-view-id="innovacion-cierre">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">Tu superpoder asegurado: ¡Innovación!</h2>
+            <p class="cierre-modulo__subtitulo">El cambio es la única constante para seguir siendo los mejores. ¡Sigue creando!</p>
+            <button type="button" class="btn-pill cierre-modulo__boton" data-goto="next">Responsabilidad</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12b. Presentación animada — Responsabilidad -->
+      <section class="view view-presenter" id="view-presenter-responsabilidad" data-view-id="presenter-responsabilidad">
+        <div class="presenter-card">
+          <div class="presenter-card__line" aria-hidden="true"></div>
+          <p class="presenter-card__eyebrow">Tu siguiente superpoder</p>
+          <h2 class="presenter-card__title">Responsabilidad</h2>
+          <div class="presenter-card__line presenter-card__line--bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 13. Responsabilidad — escenario / pregunta (orden verificado contra el PDF: aquí el
+           escenario va ANTES del loading, al revés que Honestidad/Enfoque — pág. 23 escenario → 24 loading) -->
+      <section class="view view-responsabilidad" id="view-responsabilidad-escenario" data-view-id="responsabilidad-escenario">
+        <div class="responsabilidad-columnas">
+          <div class="tarjeta-oscura escenario-panel">
+            <img class="escenario-panel__foto" src="assets/img/responsabilidad/foto-escenario.png" alt="" aria-hidden="true">
+            <div class="escenario-panel__scrim" aria-hidden="true"></div>
+            <h2 class="escenario-panel__titulo">¿Tu estación refleja tu nivel de compromiso profesional?</h2>
+            <p class="escenario-panel__subtitulo">La calidad de lo que entregamos comienza con tus manos. ¡Demuéstralo!</p>
+          </div>
+          <div class="video-player" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/responsabilidad/poster-escenario.jpg" aria-label="Video del escenario: responsabilidad en el punto de venta">
+              <source src="assets/video/responsabilidad/escenario.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración del escenario">
+              <source src="assets/audio/responsabilidad/escenario.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. Responsabilidad — carrusel de tips (carrusel horizontal real, js/carousel.js) -->
+      <section class="view view-responsabilidad" id="view-responsabilidad-carrusel" data-view-id="responsabilidad-carrusel">
+        <div class="responsabilidad-columnas">
+          <div class="carrusel-mini tarjeta-grande">
+            <script type="application/json" class="carrusel-datos">
+              [{"icon": "assets/img/responsabilidad/icono-escudo-higiene.png", "iconAlt": "Icono de escudo con check", "label": "Higiene impecable", "caption": "Sigue al pie de la letra las buenas prácticas de manejo de alimentos. Tu limpieza protege vidas."}, {"icon": "assets/img/responsabilidad/icono-reloj-puntualidad.png", "iconAlt": "Icono de reloj", "label": "Puntualidad de héroe", "caption": "Estar listo al inicio de tu turno asegura un relevo operativo sin fricciones para el equipo."}, {"icon": "assets/img/responsabilidad/icono-mano-hazte-cargo.png", "iconAlt": "Icono de mano con pulgar arriba", "label": "Hazte cargo", "caption": "Si un producto se derrama o está defectuoso, solucionalo de inmediato. Soluciona antes del siguiente turno."}, {"historia": true, "eyebrow": "¿Cómo aplico mi responsabilidad?", "parrafo": "Hola, mi nombre es Gabriel y trabajo en Tiendas Pronto. Durante un turno de la tarde, accidentalmente etiqueté mal la fecha de vencimiento de un ingrediente y coloqué una fecha posterior a la correcta.<br><br>Pude haberlo dejado ahí esperando que se vendiera rápido, pero sabía que la calidad no era la correcta y afectaría la experiencia del cliente. En lugar de ocultarlo, asumí mi responsabilidad, retiré el producto dañado siguiendo la guía de mermas y le informé honestamente a mi jefe lo ocurrido. Ajustamos el proceso juntos. Aprendí que ser responsable significa cuidar la marca como si fuera mi propia empresa.", "audio": "assets/audio/responsabilidad/historia-gabriel.mp3", "miniActualIndex": 2}]
+            </script>
+            <h2 class="carrusel-mini__titulo">¿Cómo aplico mi responsabilidad?</h2>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--prev" data-carousel="prev" aria-label="Tarjeta anterior">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--next" data-carousel="next" aria-label="Tarjeta siguiente">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <div class="carrusel-mini__iconos">
+              <div class="carrusel-mini__icono carrusel-mini__icono--prev tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--actual tarjeta-icono tarjeta-icono--grande"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--next tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+            </div>
+            <p class="carrusel-mini__track-titulo"></p>
+          </div>
+          <div class="responsabilidad-divisor" aria-hidden="true"></div>
+          <div class="audio-player tarjeta-grande" data-no-gravity>
+            <div class="tarjeta-icono tarjeta-icono--grande audio-player__icono"><img alt=""></div>
+            <h2 class="audio-player__eyebrow" hidden></h2>
+            <h3 class="audio-player__titulo"></h3>
+            <p class="audio-player__parrafo" hidden></p>
+            <audio class="audio-player__el" preload="none" aria-label="Audio de la tarjeta actual"></audio>
+            <div class="audio-player__controles" role="group" aria-label="Controles de audio">
+              <button type="button" class="audio-player__control audio-player__anterior" aria-label="Tarjeta anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14L8 12z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg>
+              </button>
+              <button type="button" class="btn-circular btn-circular--play-chico audio-player__play" aria-label="Reproducir audio">
+                <span class="icono-triangulo" aria-hidden="true"></span>
+                <span class="icono-pausa" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="audio-player__control audio-player__siguiente" aria-label="Tarjeta siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l11-7z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg>
+              </button>
+            </div>
+            <div class="audio-player__progreso-fila" data-no-gravity>
+              <div class="audio-player__barra" role="slider" aria-label="Progreso del audio" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="audio-player__relleno"></div>
+                <div class="audio-player__thumb"></div>
+              </div>
+              <span class="audio-player__tiempo">0:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16. Responsabilidad — cierre de módulo -->
+      <section class="view view-responsabilidad view-cierre" id="view-responsabilidad-cierre" data-view-id="responsabilidad-cierre">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">Tu superpoder asegurado: ¡Responsabilidad!</h2>
+            <p class="cierre-modulo__subtitulo">Tu firma personal está en cada producto impecable que entregas. ¡Mantén el estándar!</p>
+            <button type="button" class="btn-pill cierre-modulo__boton" data-goto="next">Excelencia Operacional</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16b. Presentación animada — Excelencia Operacional -->
+      <section class="view view-presenter" id="view-presenter-excelencia" data-view-id="presenter-excelencia">
+        <div class="presenter-card">
+          <div class="presenter-card__line" aria-hidden="true"></div>
+          <p class="presenter-card__eyebrow">Tu siguiente superpoder</p>
+          <h2 class="presenter-card__title">Excelencia Operacional</h2>
+          <div class="presenter-card__line presenter-card__line--bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 17. Excelencia Operacional — escenario / pregunta (mismo orden que Responsabilidad:
+           escenario → loading → carrusel, verificado contra el PDF: pág. 30 escenario → 31 loading) -->
+      <section class="view view-excelencia" id="view-excelencia-escenario" data-view-id="excelencia-escenario">
+        <div class="excelencia-columnas">
+          <div class="tarjeta-oscura escenario-panel">
+            <img class="escenario-panel__foto" src="assets/img/excelencia/foto-escenario.png" alt="" aria-hidden="true">
+            <div class="escenario-panel__scrim" aria-hidden="true"></div>
+            <h2 class="escenario-panel__titulo">¿Haces tu mejor trabajo cuando nadie te está vigilando?</h2>
+            <p class="escenario-panel__subtitulo">La grandeza de nuestras tiendas se demuestra en los pequeños detalles invisibles.</p>
+          </div>
+          <div class="video-player" data-no-gravity>
+            <video class="video-player__el" preload="none" playsinline poster="assets/img/excelencia/poster-escenario.jpg" aria-label="Video del escenario: excelencia operacional en el punto de venta">
+              <source src="assets/video/excelencia/escenario.mp4" type="video/mp4">
+            </video>
+            <audio class="video-player__narracion" data-no-gravity preload="none" aria-label="Narración del escenario">
+              <source src="assets/audio/excelencia/escenario.mp3" type="audio/mpeg">
+            </audio>
+            <div class="video-player__scrim" aria-hidden="true"></div>
+            <button type="button" class="btn-circular btn-circular--play-grande video-player__play" aria-label="Reproducir video">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+              <span class="icono-pausa" aria-hidden="true"></span>
+            </button>
+            <div class="video-player__controles">
+              <div class="video-player__barra" role="slider" aria-label="Progreso del video" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="video-player__relleno"></div>
+                <div class="video-player__thumb"></div>
+              </div>
+              <span class="video-player__tiempo">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16. Excelencia Operacional — carrusel de tips (carrusel horizontal real, js/carousel.js).
+           Encabezado distinto del patrón "¿Cómo aplico mi [valor]?": aquí es "Tips de Excelencia
+           operacional" (verificado contra el PDF, págs. 32-35 — hallazgo 0.5 de ANALISIS-DISENO.md). -->
+      <section class="view view-excelencia" id="view-excelencia-carrusel" data-view-id="excelencia-carrusel">
+        <div class="excelencia-columnas">
+          <div class="carrusel-mini tarjeta-grande">
+            <script type="application/json" class="carrusel-datos">
+              [{"icon": "assets/img/excelencia/icono-objetivo-cero-errores.png", "iconAlt": "Icono de diana con flecha", "label": "Cero errores", "caption": "Procesa cada transacción bancaria, recarga y cobro con total concentración y apego al manual de operaciones."}, {"icon": "assets/img/excelencia/icono-check-orden-constante.png", "iconAlt": "Icono de check verde", "label": "Orden constante", "caption": "Mantén las góndolas abastecidas y los productos de impulso alineados frente al cliente. El orden vende."}, {"icon": "assets/img/excelencia/icono-estanteria-sin-atajos.png", "iconAlt": "Icono de estantería con productos", "label": "Sin atajos", "caption": "Sigue los pasos completos de producción de alimentos y mantenimiento de equipos. La prisa no justifica bajar el estándar."}, {"historia": true, "eyebrow": "Tips de Excelencia operacional", "parrafo": "Hola, soy Marta de Tiendas Pronto. En el turno de la medianoche la tienda se calma bastante y es fácil relajarse. Una noche, pude haber dejado el reabastecimiento de los exhibidores de toppings para el equipo de la mañana. Sin embargo, decidí limpiar profundamente la barra, alineé perfectamente las bebidas en las neveras y cuadré mi caja al centavo.<br><br>A las 5:00 de la mañana entró una auditoría sorpresa del equipo de excelencia operativa. Mi tienda obtuvo una calificación perfecta del 100%. Por eso, estoy convencida de que hacer bien las cosas cuando nadie mira es lo que nos hace líderes en Centroamérica.", "audio": "assets/audio/excelencia/historia-marta.mp3", "miniActualIndex": 2}]
+            </script>
+            <h2 class="carrusel-mini__titulo">Tips de Excelencia operacional</h2>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--prev" data-carousel="prev" aria-label="Tarjeta anterior">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn-circular btn-circular--flecha carrusel-mini__flecha carrusel-mini__flecha--next" data-carousel="next" aria-label="Tarjeta siguiente">
+              <span class="icono-triangulo" aria-hidden="true"></span>
+            </button>
+            <div class="carrusel-mini__iconos">
+              <div class="carrusel-mini__icono carrusel-mini__icono--prev tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--actual tarjeta-icono tarjeta-icono--grande"><img alt=""></div>
+              <div class="carrusel-mini__icono carrusel-mini__icono--next tarjeta-icono tarjeta-icono--mediana" aria-hidden="true"><img alt=""></div>
+            </div>
+            <p class="carrusel-mini__track-titulo"></p>
+          </div>
+          <div class="excelencia-divisor" aria-hidden="true"></div>
+          <div class="audio-player tarjeta-grande" data-no-gravity>
+            <div class="tarjeta-icono tarjeta-icono--grande audio-player__icono"><img alt=""></div>
+            <h2 class="audio-player__eyebrow" hidden></h2>
+            <h3 class="audio-player__titulo"></h3>
+            <p class="audio-player__parrafo" hidden></p>
+            <audio class="audio-player__el" preload="none" aria-label="Audio de la tarjeta actual"></audio>
+            <div class="audio-player__controles" role="group" aria-label="Controles de audio">
+              <button type="button" class="audio-player__control audio-player__anterior" aria-label="Tarjeta anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14L8 12z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg>
+              </button>
+              <button type="button" class="btn-circular btn-circular--play-chico audio-player__play" aria-label="Reproducir audio">
+                <span class="icono-triangulo" aria-hidden="true"></span>
+                <span class="icono-pausa" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="audio-player__control audio-player__siguiente" aria-label="Tarjeta siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14l11-7z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg>
+              </button>
+            </div>
+            <div class="audio-player__progreso-fila" data-no-gravity>
+              <div class="audio-player__barra" role="slider" aria-label="Progreso del audio" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="audio-player__relleno"></div>
+                <div class="audio-player__thumb"></div>
+              </div>
+              <span class="audio-player__tiempo">0:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 20. Excelencia Operacional — cierre de módulo (último módulo: botón "Finalizar desafío") -->
+      <section class="view view-excelencia view-cierre" id="view-excelencia-cierre" data-view-id="excelencia-cierre">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">Tu superpoder asegurado: ¡Excelencia Operacional!</h2>
+            <p class="cierre-modulo__subtitulo">Hacer las cosas de forma extraordinaria es nuestro hábito diario. ¡Felicidades!</p>
+            <button type="button" class="btn-pill cierre-modulo__boton" data-goto="next">Finalizar desafío</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21. Cierre final — "¡Felicidades, Héroe del instante!" (pág. 37, sin botón visible en el PDF;
+           el SCORM marca completed automáticamente al llegar aquí, ver js/scorm-api-wrapper.js) -->
+      <section class="view view-final view-cierre" id="view-final" data-view-id="final">
+        <div class="cierre-modulo">
+          <div class="cierre-modulo__medalla-panel">
+            <img class="cierre-modulo__medalla" src="assets/img/global/medalla-cierre.png" alt="Medalla dorada grabada con la palabra Honestidad, una balanza y un ojo">
+          </div>
+          <div class="cierre-modulo__contenido">
+            <img class="cierre-modulo__logo" src="assets/img/global/logo-pronto.png" alt="Pronto">
+            <h2 class="cierre-modulo__titulo">¡Felicidades,<br>Héroe del instante!</h2>
+            <p class="cierre-modulo__subtitulo">Has reforzado tus 5 superpoderes: Honestidad, Enfoque al Cliente, Innovación, Responsabilidad y Excelencia Operacional.</p>
+            <p class="cierre-modulo__subtitulo">La operación de Tiendas Pronto y la satisfacción de nuestros clientes está en tus manos.</p>
+            <p class="cierre-modulo__final-linea">¡Haz que suceda en cada turno!</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/stage-scale.js"></script>
+<script src="js/scroll-gravity.js"></script>
+<script src="js/video-player.js"></script>
+<script src="js/audio-player.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/scorm-api-wrapper.js"></script>
+<script src="js/main.js"></script>
+<script src="js/presenter.js"></script>
+</body>
+</html>

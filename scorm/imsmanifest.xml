@@ -1,0 +1,131 @@
+<?xml version="1.0" standalone="no" ?>
+<manifest identifier="COM.PRONTO.HEROES-DEL-INSTANTE" version="1"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <adlcp:location>metadata.xml</adlcp:location>
+  </metadata>
+
+  <organizations default="ORG-PRONTO-VALORES">
+    <organization identifier="ORG-PRONTO-VALORES">
+      <title>Pronto: Héroes del Instante</title>
+      <item identifier="ITEM-MODULO" identifierref="RES-MODULO" isvisible="true">
+        <title>Pronto: Héroes del Instante — Módulo de Valores Corporativos</title>
+        <adlcp:masteryscore>80</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="RES-MODULO" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="css/variables.css"/>
+      <file href="css/base.css"/>
+      <file href="css/componentes/botones.css"/>
+      <file href="css/componentes/tarjetas.css"/>
+      <file href="css/componentes/video-player.css"/>
+      <file href="css/componentes/audio-player.css"/>
+      <file href="css/componentes/carrusel-mini.css"/>
+      <file href="css/componentes/cierre.css"/>
+      <file href="css/componentes/progreso.css"/>
+      <file href="css/componentes/presenter.css"/>
+      <file href="css/secciones/inicio.css"/>
+      <file href="css/secciones/bienvenida.css"/>
+      <file href="css/secciones/honestidad.css"/>
+      <file href="css/secciones/enfoque.css"/>
+      <file href="css/secciones/innovacion.css"/>
+      <file href="css/secciones/responsabilidad.css"/>
+      <file href="css/secciones/excelencia.css"/>
+      <file href="css/secciones/final.css"/>
+      <file href="js/stage-scale.js"/>
+      <file href="js/scroll-gravity.js"/>
+      <file href="js/video-player.js"/>
+      <file href="js/audio-player.js"/>
+      <file href="js/carousel.js"/>
+      <file href="js/scorm-api-wrapper.js"/>
+      <file href="js/main.js"/>
+      <file href="js/presenter.js"/>
+      <file href="assets/fonts/Fredoka.ttf"/>
+      <file href="assets/audio/bienvenida/intro.mp3"/>
+      <file href="assets/audio/honestidad/escenario.mp3"/>
+      <file href="assets/audio/honestidad/historia-carlos.mp3"/>
+      <file href="assets/audio/enfoque/escenario.mp3"/>
+      <file href="assets/audio/enfoque/historia-elena.mp3"/>
+      <file href="assets/audio/innovacion/escenario.mp3"/>
+      <file href="assets/audio/innovacion/historia-luis.mp3"/>
+      <file href="assets/audio/responsabilidad/escenario.mp3"/>
+      <file href="assets/audio/responsabilidad/historia-gabriel.mp3"/>
+      <file href="assets/audio/excelencia/escenario.mp3"/>
+      <file href="assets/audio/excelencia/historia-marta.mp3"/>
+      <file href="assets/video/bienvenida/contexto.mp4"/>
+      <file href="assets/video/honestidad/escenario.mp4"/>
+      <file href="assets/video/enfoque/escenario.mp4"/>
+      <file href="assets/video/innovacion/escenario.mp4"/>
+      <file href="assets/video/responsabilidad/escenario.mp4"/>
+      <file href="assets/video/excelencia/escenario.mp4"/>
+      <file href="assets/img/global/logo-pronto.png"/>
+      <file href="assets/img/global/medalla-cierre.png"/>
+      <file href="assets/img/global/fondo-cierre-degradado.png"/>
+      <file href="assets/img/global/placeholder-video-gris.png"/>
+      <file href="assets/img/global/panel-degradado-chico.png"/>
+      <file href="assets/img/global/boton-iniciar-desafio.png"/>
+      <file href="assets/img/global/boton-play-circular-grande.png"/>
+      <file href="assets/img/global/boton-play-circular-chico.png"/>
+      <file href="assets/img/global/boton-play-circular-chico-2.png"/>
+      <file href="assets/img/global/boton-flecha-atras-grande.png"/>
+      <file href="assets/img/global/boton-flecha-atras-chico.png"/>
+      <file href="assets/img/inicio/foto-mujer.jpg"/>
+      <file href="assets/img/inicio/foto-hombre.png"/>
+      <file href="assets/img/inicio/textura-fondo.jpg"/>
+      <file href="assets/img/inicio/poster-bienvenida.jpg"/>
+      <file href="assets/img/honestidad/foto-escenario.png"/>
+      <file href="assets/img/honestidad/poster-escenario.jpg"/>
+      <file href="assets/img/honestidad/icono-precio-claros.png"/>
+      <file href="assets/img/honestidad/icono-caja-fuerte.png"/>
+      <file href="assets/img/honestidad/icono-manos-confianza.png"/>
+      <file href="assets/img/honestidad/icono-regalo-beneficios.png"/>
+      <file href="assets/img/honestidad/boton-siguiente-enfoque.png"/>
+      <file href="assets/img/enfoque/foto-escenario.png"/>
+      <file href="assets/img/enfoque/poster-escenario.jpg"/>
+      <file href="assets/img/enfoque/foto-tienda-checkout.jpg"/>
+      <file href="assets/img/enfoque/icono-cara-contacto-humano.png"/>
+      <file href="assets/img/enfoque/icono-rayo-agilidad.png"/>
+      <file href="assets/img/enfoque/icono-dialogo-escucha-activa.png"/>
+      <file href="assets/img/enfoque/boton-siguiente-innovacion.png"/>
+      <file href="assets/img/innovacion/foto-escenario.png"/>
+      <file href="assets/img/innovacion/poster-escenario.jpg"/>
+      <file href="assets/img/innovacion/foto-tienda-checkout.jpg"/>
+      <file href="assets/img/innovacion/icono-pc-cero-resistencia.png"/>
+      <file href="assets/img/innovacion/icono-bombillo-maestria.png"/>
+      <file href="assets/img/innovacion/icono-flecha-propon-mejoras.png"/>
+      <file href="assets/img/innovacion/boton-siguiente-responsabilidad.png"/>
+      <file href="assets/img/responsabilidad/foto-escenario.png"/>
+      <file href="assets/img/responsabilidad/poster-escenario.jpg"/>
+      <file href="assets/img/responsabilidad/foto-tienda-mostrador.jpg"/>
+      <file href="assets/img/responsabilidad/icono-escudo-higiene.png"/>
+      <file href="assets/img/responsabilidad/icono-reloj-puntualidad.png"/>
+      <file href="assets/img/responsabilidad/icono-mano-hazte-cargo.png"/>
+      <file href="assets/img/responsabilidad/boton-siguiente-excelencia.png"/>
+      <file href="assets/img/excelencia/foto-escenario.png"/>
+      <file href="assets/img/excelencia/poster-escenario.jpg"/>
+      <file href="assets/img/excelencia/foto-tienda-anaqueles.jpg"/>
+      <file href="assets/img/excelencia/icono-objetivo-cero-errores.png"/>
+      <file href="assets/img/excelencia/icono-check-orden-constante.png"/>
+      <file href="assets/img/excelencia/icono-estanteria-sin-atajos.png"/>
+      <file href="assets/img/excelencia/boton-finalizar-desafio.png"/>
+      <file href="assets/img/enfoque/_unused-check-loading-pill.png"/>
+      <file href="assets/img/faltantes/icono-etiqueta-precios-claros.svg"/>
+      <file href="assets/img/faltantes/icono-caja-fuerte-cuentas-claras.svg"/>
+      <file href="assets/img/faltantes/icono-apreton-manos-confianza-mutua.svg"/>
+      <file href="assets/img/faltantes/icono-carita-feliz-contacto-humano.svg"/>
+    </resource>
+  </resources>
+
+</manifest>

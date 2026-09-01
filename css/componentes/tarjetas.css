@@ -1,0 +1,62 @@
+/* =========================================================================
+   Tarjetas — panel grande con degradado amarillo→oscuro (escenario, carrusel,
+   reproductor de audio) y tarjeta/icono cuadrado negro (iconos de carrusel).
+   ========================================================================= */
+
+/* El degradado de las tarjetas grandes usa el asset real del diseñador
+   (mismo PNG reutilizado en las 5 carpetas de valor bajo nombres distintos,
+   ver ASSETS-MAP.md §7) en vez de una aproximación en CSS — así el matiz y
+   el punto de quiebre amarillo→negro coinciden exactamente con el PDF. */
+.tarjeta-grande {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: url('../../assets/img/global/panel-degradado-chico.png') center / 100% 100% no-repeat;
+  border-radius: var(--radio-tarjeta);
+  box-shadow: var(--sombra-tarjeta);
+  overflow: visible; /* permite que flechas/controles floten fuera del borde */
+}
+
+/* Variante oscura: panel de texto (escenario) sin degradado amarillo */
+.tarjeta-oscura {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(165deg, var(--color-gris-oscuro) 0%, var(--color-negro) 100%);
+  border-radius: var(--radio-tarjeta);
+  box-shadow: var(--sombra-tarjeta);
+  overflow: hidden;
+}
+
+.tarjeta-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  background: var(--color-negro);
+  border-radius: var(--radio-icono);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+}
+
+.tarjeta-icono img,
+.tarjeta-icono svg {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.tarjeta-icono--grande {
+  width: 420px;
+  height: 420px;
+}
+
+.tarjeta-icono--mediana {
+  width: 290px;
+  height: 290px;
+  opacity: 0.45;
+}
+
+@media (max-width: 860px), (max-aspect-ratio: 62/100) {
+  .tarjeta-icono--grande { width: 220px; height: 220px; }
+  .tarjeta-icono--mediana { width: 160px; height: 160px; }
+}

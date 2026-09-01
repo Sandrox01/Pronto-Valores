@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Apretón de manos">
+  <g stroke="#101010" stroke-width="8" stroke-linejoin="round">
+    <path d="M30 150 L85 112 L120 132 L95 168 Z" fill="#F2B77C"/>
+    <path d="M270 150 L215 112 L180 132 L205 168 Z" fill="#E39A5C"/>
+    <path d="M95 168 Q150 200 205 168 L215 182 Q150 224 85 182 Z" fill="#FFCE11"/>
+    <path d="M85 112 Q150 84 215 112" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
