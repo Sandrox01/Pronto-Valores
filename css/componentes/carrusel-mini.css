@@ -15,11 +15,12 @@
 }
 
 .carrusel-mini__titulo {
-  align-self: flex-start;
+  align-self: center;
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 56px;
+  text-align: center;
   color: var(--color-negro);
 }
 
@@ -77,6 +78,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 52px;
+  text-transform: uppercase;
   color: var(--color-blanco);
 }
 

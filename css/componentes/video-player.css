@@ -25,6 +25,14 @@
   background: var(--color-gris-video);
 }
 
+/* Las animaciones de los cinco escenarios vienen exportadas en 16:9, pero
+   su contenido útil es vertical y trae bandas negras dentro del propio MP4.
+   Un contenedor más angosto hace que object-fit:cover recorte solo esas
+   bandas, conservando completos el borde superior y el inferior. */
+.view .escenario-panel + .video-player {
+  flex: 0 0 560px;
+}
+
 /* Scrim solo en la franja inferior, para que la barra de progreso y el tiempo
    sean legibles sobre el video/poster real sin apagar la imagen. */
 .video-player__scrim {
@@ -153,6 +161,12 @@
 
 @media (max-width: 860px), (max-aspect-ratio: 62/100) {
   .video-player { min-height: 320px; }
+  .view .escenario-panel + .video-player {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 9 / 16;
+  }
   .video-player__play { opacity: 1; pointer-events: auto; }
   .video-player.esta-reproduciendo .video-player__play { opacity: 0 !important; pointer-events: none !important; }
   .video-player__controles { left: 24px; right: 24px; bottom: 20px; gap: 12px; opacity: 1; pointer-events: auto; }

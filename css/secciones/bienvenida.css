@@ -21,17 +21,17 @@
 
 .video-player--ancho {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 319 / 180;
   max-width: 1500px;
+  max-height: 100%;
 }
 
-/* La foto usada de póster (assets/img/inicio/foto-hombre.png) es un retrato
-   vertical recortado, pensado para el splash de Inicio — en este reproductor
-   horizontal, `object-fit:cover` la centraba por defecto y cortaba la
-   cabeza. Subir el punto de referencia deja ver la cara/el logo Pronto del
-   uniforme en vez de solo el torso. */
+/* La animación corregida es horizontal (1914x1080). Se muestra completa,
+   respetando su proporción, para que no se corten los textos laterales. */
 .video-player--bienvenida .video-player__el {
-  object-position: center 15%;
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (max-width: 860px), (max-aspect-ratio: 62/100) {

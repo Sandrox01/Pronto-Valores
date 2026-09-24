@@ -36,6 +36,11 @@
     var tiempoEl = reproductor.querySelector('.video-player__tiempo');
     if (!video) return;
 
+    // Las animaciones finales incluyen una pista de audio de referencia,
+    // pero el curso reproduce la locución corregida desde el <audio>
+    // separado. Silenciar el video evita que ambas voces suenen a la vez.
+    if (narracion) video.muted = true;
+
     // El "reloj" de la interfaz: la narración si existe (tiene duración
     // real), si no el propio <video> (para cuando llegue el .mp4 real).
     var reloj = narracion || video;

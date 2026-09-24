@@ -50,6 +50,12 @@
   height: auto;
 }
 
+/* En la pantalla final la imagen es un trofeo con más detalle (los 5 emblemas
+   grabados en la base): se muestra más grande para que se aprecie mejor. */
+.view-final .cierre-modulo__medalla {
+  width: 320%;
+}
+
 .cierre-modulo__contenido {
   flex: 1;
   display: flex;
@@ -114,6 +120,9 @@
   }
   .cierre-modulo__medalla {
     width: 160%;
+  }
+  .view-final .cierre-modulo__medalla {
+    width: 210%;
   }
   .cierre-modulo__titulo { font-size: 48px; }
   .cierre-modulo__subtitulo { font-size: 28px; }
